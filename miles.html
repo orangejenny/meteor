@@ -1,14 +1,30 @@
 <head>
-  <title>miles</title>
+  <title>Miles</title>
 </head>
-
+ 
 <body>
-  <h1>Welcome to Meteor!</h1>
+	<header>
+      <h1>Miles</h1>
+	</header>
 
-  {{> hello}}
+	<ul>
+		{{#each days}}
+			{{> day}}
+		{{/each}}
+	</ul>
 </body>
+ 
+<template name="day">
+	<li>
+		{{day}}: {{notes}}
+		<ul>
+			{{#each workouts}}
+				{{> workout}}
+			{{/each}}
+		</ul>
+	</li>
+</template>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="workout">
+	{{activity}} {{sets}} x {{reps}} @ {{weight}} {{distance}} {{unit}} in {{time}}
 </template>
